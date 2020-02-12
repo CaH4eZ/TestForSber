@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SberTest</title>
+    <style type="text/css">
+      body {
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-size:20px;
+        -moz-transition-property: text-shadow;
+        -moz-transition-duration: 4s;
+        -webkit-transition-property: text-shadow;
+        -webkit-transition-duration: 4s;
+        text-shadow: none;
+      }
+      body.blurry {
+        -moz-transition-property: text-shadow;
+        -moz-transition-duration: 4s;
+        -webkit-transition-property: text-shadow;
+        -webkit-transition-duration: 4s;
+        text-shadow: #fff 0px 0px 25px;
+      }
+      p {
+        color: #cae6e8
+      }
+      a {
+        color: #F0FFFF;
+      }
+      .textColumn, .linksColumn {
+        padding: 2em;
+      }
+      .textColumn {
+        position: absolute;
+        top: 0px;
+        right: 50%;
+        bottom: 0px;
+        left: 0px;
+
+        text-align: right;
+        padding-top: 11em;
+        background-color: #48cf34;
+      }
+      .textColumn p {
+        width: 75%;
+        float:right;
+      }
+      .linksColumn {
+        position: absolute;
+        top:0px;
+        right: 0px;
+        bottom: 0px;
+        left: 50%;
+
+        background-color: #5C85D6;
+      }
+
+      h1 {
+        color: #3A599A;
+        font-size: 500%;
+        font-weight: normal;
+        margin-bottom: 0em;
+      }
+      h2 {
+        font-size: 200%;
+        font-weight: normal;
+        margin-bottom: 0em;
+      }
+      ul {
+        padding-left: 1em;
+        margin: 0px;
+      }
+      li {
+        margin: 1em 0em;
+      }
+      #generateTrace {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+        background-color: white;
+        color: #333;
+        border-color: white;
+        text-decoration: none;
+      }
+      #generateTrace:hover {
+        color: white;
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="textColumn">
+      <h1>SberTest</h1>
+      <p>It's my testwork for sber</p>
+    </div>
+    <div class="linksColumn">
+      <h2>This is my profile on Facebook!</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=100045307661830&ref=bookmarks">HvostenkoAS</a></li>
+      </ul>
+    </div>
+  <script type="text/javascript">
+    function doTrace() {
+      document.getElementById("generateTrace").textContent = "Generating Traffic...";
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4) {
+          if (xmlHttp.status == 200) {
+            document.getElementById("generateTrace").textContent = "Done! Click to generate more data";
+          } else {
+            // Non 200 ready status
+            document.getElementById("generateTrace").textContent = "Issue communicating with backend. Click to try again.";
+          }
+        }
+      }
+      xmlHttp.open("GET", "/trace", true);
+      xmlHttp.send(null);
+    }
+  </script>
+  </body>
+</html>
